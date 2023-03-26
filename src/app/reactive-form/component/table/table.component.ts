@@ -15,12 +15,29 @@ export class TableComponent implements OnInit{
   userData:any;
   searchTerm!: string;
   statusFilterValue!:string
+
+  currentPage = 1;
+  totalItems = 0;
+  items!: any[];
+  
+  // initialize items per page to default value
+  itemsPerPageOptions: number[] = [2,5,10, 15,20, 50];
+  itemsPerPage = 10;
+
   constructor(private service: MyServiceService,private router:Router){}
 
   ngOnInit() {
-    this.loadData();
+    this.service.getData().subscribe((data: any[]) => {
+      this.userData = data;
+      this.totalItems = data.length;
+    });
   }
 
+  get totalPages() {
+    return Math.ceil(this.totalItems / this.itemsPerPage);
+  }
+
+  
   loadData() {
     this.service.getData().subscribe(response => {
       this.userData = response;
