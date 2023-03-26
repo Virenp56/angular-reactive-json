@@ -1,0 +1,47 @@
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <label for="first-name">Name: </label>
+    <input id="first-name" type="text" formControlName="name">
+    <label for="first-name">Description: </label>
+    <input id="first-name" type="text" formControlName="description">
+    <label for="first-name">Status: </label>
+    <input id="first-name" type="text" formControlName="status">
+    <label for="first-name">Rate: </label>
+    <input id="first-name" type="text" formControlName="rate">
+    <label for="first-name">Balance: </label>
+    <input id="first-name" type="text" formControlName="balance">
+    <label for="first-name">Deposite: </label>
+    <input id="first-name" type="text" formControlName="deposite">
+    <!-- <label for=" first-name">First Name: </label>
+    <input id="first-name" type="text" formControlName="firstName">
+    <div *ngIf="firstName?.invalid && (firstName?.dirty || firstName?.touched)" class="alert alert-danger">
+
+        <div *ngIf="firstName?.errors?.['required']">
+            Name is required.
+        </div>
+        <div *ngIf="firstName?.errors?.['minlength']">
+            Name must be at least 4 characters long.
+        </div>
+        <div *ngIf="firstName?.errors?.['maxlength']">
+            Too long name.
+        </div>
+    </div>
+
+    <label for="last-name">Last Name: </label>
+    <input id="last-name" type="text" formControlName="lastName">
+
+    <div formArrayName="hobby">
+        <h2>hobby</h2>
+        <button type="button" (click)="addHobby()" [disabled]="hobby.length >= 5">+ Add another
+            hobby</button>
+
+        <div *ngFor="let hobbys of hobby.controls; let i=index"> -->
+    <!-- The repeated hobby template -->
+    <!-- <label for="hobby-{{ i }}">hobby:</label>
+            <input id="hobby-{{ i }}" type="text" [formControlName]="i">
+            <button (click)="removeGroup(i)" [disabled]="hobby.length == 1">Remove</button>
+        </div>
+    </div>
+
+    <p>Complete the form to enable button.</p> -->
+    <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+</form>
